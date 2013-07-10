@@ -1,4 +1,4 @@
-package org.n2.chess.beans;
+package org.n2.app.beans;
 
 import java.io.Serializable;
 

@@ -17,9 +17,9 @@
  * Contributors:
  *     Daniel Murygin <dm[at]sernet[dot]de> - initial API and implementation
  ******************************************************************************/
-package org.n2.chess.beans;
+package org.n2.app.beans;
 
-import org.n2.chess.beans.hibernate.User;
+import org.n2.app.beans.hibernate.User;
 
 /**
  * @author Daniel Murygin <dm[at]sernet[dot]de>

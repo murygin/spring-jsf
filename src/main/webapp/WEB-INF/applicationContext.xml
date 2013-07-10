@@ -12,7 +12,7 @@
     http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
 	<context:annotation-config />
-	<context:component-scan base-package="org.n2.chess.beans" />
+	<context:component-scan base-package="org.n2.app.beans" />
     
     <!-- Use this to connect directly to the database -->
     <bean
@@ -55,7 +55,7 @@
 
 		<property name="annotatedClasses">
 			<list>
-				<value>org.n2.chess.beans.hibernate.User</value>
+				<value>org.n2.app.beans.hibernate.User</value>
 			</list>
 		</property>
 	</bean>

@@ -11,7 +11,7 @@
     <!--
     <validator>
         <validator-id>userValidator</validator-id>
-        <validator-class>org.n2.chess.beans.UserValidator</validator-class>
+        <validator-class>org.n2.app.beans.UserValidator</validator-class>
     </validator>
     -->
 </faces-config>

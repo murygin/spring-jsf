@@ -17,23 +17,35 @@
  * Contributors:
  *     Daniel Murygin <dm[at]sernet[dot]de> - initial API and implementation
  ******************************************************************************/
-package org.n2.chess.beans.hibernate;
+package org.n2.app.beans;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.validator.Validator;
+import javax.faces.validator.ValidatorException;
+
+import org.springframework.stereotype.Component;
 
 /**
  * @author Daniel Murygin <dm[at]sernet[dot]de>
  *
  */
-public class CustomHibernateDaoSupport  {
-
-    @Autowired
-    private SessionFactory sessionFactory;
-
-    public Session getSession() {
-        return sessionFactory.getCurrentSession();
+@Component("passwordValidator")
+public class PasswordValidator implements Validator{
+ 
+    public PasswordValidator(){
     }
-    
+ 
+    @Override
+    public void validate(FacesContext context, UIComponent component,Object value) throws ValidatorException {  
+        String pwd = (String) value;
+        if(pwd!=null && pwd.length()<6) {
+            FacesMessage msg = new FacesMessage("Password is to short", "Enter a password with at least 6 characters.");
+            msg.setSeverity(FacesMessage.SEVERITY_WARN);
+            throw new ValidatorException(msg);
+        }
+    }
+
+
 }
