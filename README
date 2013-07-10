@@ -1,3 +1,1 @@
-This is a project template for a Spring JSF integration.
-
-On online chessboard, branch with with working registration and login
+This is a project template for a Spring JSF integration. Front end is made with PrimeFaces data access with Hibernate.
