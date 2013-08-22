@@ -24,7 +24,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
-import org.n2.app.beans.hibernate.IUserDao;
+import org.n2.app.beans.hibernate.IDao;
 import org.n2.app.beans.hibernate.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,19 +40,19 @@ public class UserService implements IUserService {
     private static final Logger LOG = Logger.getLogger(UserService.class);
 
     @Autowired
-    private IUserDao userDao;
+    private IDao<User> userDao;
     
     /**
      * @return the userDao
      */
-    public IUserDao getUserDao() {
+    public IDao<User> getUserDao() {
         return userDao;
     }
 
     /**
      * @param userDao the userDao to set
      */
-    public void setUserDao(IUserDao userDao) {
+    public void setUserDao(IDao<User> userDao) {
         this.userDao = userDao;
     }
     

@@ -31,7 +31,7 @@ import org.springframework.stereotype.Repository;
  *
  */
 @Repository("userDao")
-public class UserDao extends CustomHibernateDaoSupport implements IUserDao {
+public class UserDao extends CustomHibernateDaoSupport implements IDao<User> {
 
     /* (non-Javadoc)
      * @see org.n2.chess.beans.hibernate.IUserDao#save(org.n2.chess.beans.hibernate.User)
@@ -56,9 +56,6 @@ public class UserDao extends CustomHibernateDaoSupport implements IUserDao {
     public void delete(User user) {
         getSession().delete(user);
     }
-
-
-
 
     /* (non-Javadoc)
      * @see org.n2.chess.beans.hibernate.IUserDao#find(org.hibernate.criterion.DetachedCriteria)

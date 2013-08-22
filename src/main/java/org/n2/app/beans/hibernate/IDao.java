@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011 Daniel Murygin.
+ * Copyright (c) 2013 Daniel Murygin.
  *
  * This program is free software: you can redistribute it and/or 
  * modify it under the terms of the GNU Lesser General Public License 
@@ -24,14 +24,15 @@ import java.util.List;
 import org.hibernate.criterion.DetachedCriteria;
 
 /**
- * @author Daniel Murygin <dm[at]sernet[dot]de>
  *
+ *
+ * @author Daniel Murygin <dm[at]sernet[dot]de>
  */
-public interface IUserDao {
+public interface IDao<T> {
     
-    void save(User user);
-    void update(User user);
-    void delete(User user);
-    List<User> findByExample(User user);
-    List<User> find(DetachedCriteria criteria);
+    void save(T entity);
+    void update(T entity);
+    void delete(T entity);
+    List<T> findByExample(T entity);
+    List<T> find(DetachedCriteria criteria);
 }
