@@ -48,7 +48,7 @@ public class UserValidator implements Validator {
             if(!getUserService().isUsernameAvailable((String) value) 
                || !getUserService().isEmailAvailable((String) value)) {              
                 FacesMessage message = new FacesMessage();
-                message.setDetail(value + "is not available. Choose another name.");
+                message.setDetail(value + " is not available. Choose another name.");
                 message.setSummary("Not available");
                 message.setSeverity(FacesMessage.SEVERITY_WARN);
                 throw new ValidatorException(message);

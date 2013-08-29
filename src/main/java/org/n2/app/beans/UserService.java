@@ -19,6 +19,7 @@
  ******************************************************************************/
 package org.n2.app.beans;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -35,7 +36,7 @@ import org.springframework.transaction.annotation.Transactional;
  *
  */
 @Service("userService")
-public class UserService implements IUserService {
+public class UserService implements IUserService, Serializable {
     
     private static final Logger LOG = Logger.getLogger(UserService.class);
 

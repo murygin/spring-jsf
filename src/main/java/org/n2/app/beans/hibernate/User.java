@@ -34,7 +34,7 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name = "user", catalog = "cchess")
+@Table(name = "user")
 public class User implements Serializable {
 
     private Integer id;

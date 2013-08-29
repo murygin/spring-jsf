@@ -33,7 +33,7 @@
     <!-- Use this if you use a data source manged by Tomcat -->
     <!-- 
     <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-        <property name="jndiName" value="java:comp/env/jdbc/cchess"/>   
+        <property name="jndiName" value="java:comp/env/jdbc/springjsf"/>   
         <property name="resourceRef" value="true" />
     </bean>
     -->

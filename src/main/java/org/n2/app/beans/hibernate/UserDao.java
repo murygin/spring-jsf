@@ -19,6 +19,7 @@
  ******************************************************************************/
 package org.n2.app.beans.hibernate;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -31,7 +32,7 @@ import org.springframework.stereotype.Repository;
  *
  */
 @Repository("userDao")
-public class UserDao extends CustomHibernateDaoSupport implements IDao<User> {
+public class UserDao extends CustomHibernateDaoSupport implements IDao<User>, Serializable {
 
     /* (non-Javadoc)
      * @see org.n2.chess.beans.hibernate.IUserDao#save(org.n2.chess.beans.hibernate.User)
