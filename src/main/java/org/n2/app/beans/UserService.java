@@ -31,10 +31,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- * @author Daniel Murygin <dm[at]sernet[dot]de>
- *
- */
 @Service("userService")
 public class UserService implements IUserService, Serializable {
     
@@ -43,24 +39,10 @@ public class UserService implements IUserService, Serializable {
     @Autowired
     private IDao<User> userDao;
     
-    /**
-     * @return the userDao
-     */
-    public IDao<User> getUserDao() {
-        return userDao;
-    }
-
-    /**
-     * @param userDao the userDao to set
-     */
-    public void setUserDao(IDao<User> userDao) {
-        this.userDao = userDao;
-    }
-    
     @Override
     @Transactional
     public void save(User user) {
-        getUserDao().save(user);
+    	userDao.save(user);
     }
     
     /* (non-Javadoc)
@@ -72,7 +54,7 @@ public class UserService implements IUserService, Serializable {
         DetachedCriteria criteria = DetachedCriteria.forClass(User.class);
         criteria.add(Restrictions.eq("login", username));
         User user = null;
-        List<User> result = getUserDao().find(criteria);
+        List<User> result = userDao.find(criteria);
         if(result!=null) {
             if(result.size()>1) {
                 LOG.error("More than one user found with login: " + username);
@@ -91,7 +73,7 @@ public class UserService implements IUserService, Serializable {
     @Override
     @Transactional(readOnly = true)
     public boolean isUsernameAvailable(String username) {
-        List<User> userList = getUserDao().findByExample(new User(username,null,null,null));
+        List<User> userList = userDao.findByExample(new User(username,null,null,null));
         return userList==null || userList.isEmpty();
     }
 
@@ -101,7 +83,7 @@ public class UserService implements IUserService, Serializable {
     @Override
     @Transactional(readOnly = true)
     public boolean isEmailAvailable(String email) {
-        List<User> userList = getUserDao().findByExample(new User(null,email,null,null));
+        List<User> userList = userDao.findByExample(new User(null,email,null,null));
         return userList==null || userList.isEmpty();
     }
 

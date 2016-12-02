@@ -2,10 +2,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.n2</groupId>
-	<artifactId>spring-jsf</artifactId>
+	<artifactId>spring-f</artifactId>
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
-	<name>Spring JSF integration project template</name>
+	<name>Spring F integration project template</name>
 	<url>http://maven.apache.org</url>
 	<pluginRepositories>
 		<pluginRepository>
@@ -48,11 +48,11 @@
 	</repositories>
 	<dependencies>
 
+		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
 		<dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-web-api</artifactId>
-			<version>7.0</version>
-			<scope>provided</scope>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
 		</dependency>
 
 		<dependency>
@@ -102,6 +102,12 @@
 			<artifactId>spring-orm</artifactId>
 			<version>4.3.4.RELEASE</version>
 		</dependency>
+		<dependency>
+		    <groupId>org.springframework.data</groupId>
+		    <artifactId>spring-data-jpa</artifactId>
+		    <version>1.10.5.RELEASE</version>
+		</dependency>
+
 
 		<!-- Hibernate -->
 		<!-- Always use the Hibernate version from the Spring-ORM dependencies -->
@@ -150,10 +156,9 @@
 			<version>2.3.4</version>
 		</dependency>
 
-
 	</dependencies>
 	<build>
-		<finalName>spring-jsf</finalName>
+		<finalName>spring-f</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -168,6 +173,13 @@
 				<groupId>com.cloudbees</groupId>
 				<artifactId>bees-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.3.13.M0</version>
+			</plugin>
 		</plugins>
 	</build>
+
+
 </project>

@@ -27,10 +27,6 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Example;
 import org.springframework.stereotype.Repository;
 
-/**
- * @author Daniel Murygin <dm[at]sernet[dot]de>
- *
- */
 @Repository("userDao")
 public class UserDao extends CustomHibernateDaoSupport implements IDao<User>, Serializable {
 

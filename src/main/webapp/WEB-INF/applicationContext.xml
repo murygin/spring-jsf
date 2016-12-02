@@ -32,14 +32,13 @@
     <!-- Use this if you use a data source manged by Tomcat -->
     <!-- 
     <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-        <property name="jndiName" value="java:comp/env/jdbc/springjsf"/>   
+        <property name="jndiName" value="java:comp/env/jdbc/springf"/>   
         <property name="resourceRef" value="true" />
     </bean>
     -->
 
 	<!-- Hibernate session factory -->
-	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 
 		<property name="dataSource">
 			<ref bean="dataSource" />
@@ -47,8 +46,9 @@
 
 		<property name="hibernateProperties">
 			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 			</props>
 		</property>
 
@@ -59,10 +59,10 @@
 		</property>
 	</bean>
     
-    <bean id="transactionManager" 
-            class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-    	<property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
+	<bean id="transactionManager"
+	        class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+	    <property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
   
     <tx:annotation-driven/>
     

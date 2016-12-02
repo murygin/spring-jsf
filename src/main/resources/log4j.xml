@@ -14,7 +14,7 @@
 
 	<appender name="FILE" class="org.apache.log4j.RollingFileAppender">
 		<param name="Threshold" value="DEBUG" />
-		<param name="File" value="${catalina.home}/logs/spring-jsf.log" />
+		<param name="File" value="spring-jsf.log" />
 		<param name="Append" value="true" />
 		<param name="MaxFileSize" value="5000KB" />
 		<param name="MaxBackupIndex" value="10" />
@@ -25,7 +25,7 @@
 
 	<!-- Logger for everything else -->
 	<root>
-		<priority value="DEBUG" />
+		<priority value="WARN" />
 		<appender-ref ref="FILE" />
 		<appender-ref ref="STDOUT" />
 	</root>

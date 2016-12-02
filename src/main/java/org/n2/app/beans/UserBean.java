@@ -25,10 +25,6 @@ import org.n2.app.beans.hibernate.User;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-/**
- * @author Daniel Murygin <dm[at]sernet[dot]de>
- *
- */
 @Component("user")
 @Scope("session")
 public class UserBean  implements Serializable {
