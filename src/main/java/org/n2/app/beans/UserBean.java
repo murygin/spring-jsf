@@ -21,7 +21,7 @@ package org.n2.app.beans;
 
 import java.io.Serializable;
 
-import org.n2.app.beans.hibernate.User;
+import org.n2.app.persistence.User;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 

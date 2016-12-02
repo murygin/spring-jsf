@@ -17,7 +17,7 @@
  * Contributors:
  *     Daniel Murygin <dm[at]sernet[dot]de> - initial API and implementation
  ******************************************************************************/
-package org.n2.app.beans;
+package org.n2.app.service;
 
 import java.io.Serializable;
 import java.util.List;
@@ -25,8 +25,8 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
-import org.n2.app.beans.hibernate.IDao;
-import org.n2.app.beans.hibernate.User;
+import org.n2.app.persistence.IDao;
+import org.n2.app.persistence.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

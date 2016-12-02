@@ -1,4 +1,4 @@
-package org.n2.app.beans.hibernate;
+package org.n2.app.persistence;
 
 import org.springframework.data.repository.CrudRepository;
 

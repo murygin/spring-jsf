@@ -17,7 +17,7 @@
  * Contributors:
  *     Daniel Murygin <dm[at]sernet[dot]de> - initial API and implementation
  ******************************************************************************/
-package org.n2.app.beans;
+package org.n2.app.validator;
  
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

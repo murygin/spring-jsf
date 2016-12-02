@@ -11,7 +11,7 @@
     http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
 	<context:annotation-config />
-	<context:component-scan base-package="org.n2.app.beans" />
+	<context:component-scan base-package="org.n2.app" />
     
     <!-- Use this to connect directly to the database -->
     <bean
@@ -54,7 +54,7 @@
 
 		<property name="annotatedClasses">
 			<list>
-				<value>org.n2.app.beans.hibernate.User</value>
+				<value>org.n2.app.persistence.User</value>
 			</list>
 		</property>
 	</bean>
