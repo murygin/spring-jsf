@@ -76,6 +76,13 @@
 			<artifactId>primefaces</artifactId>
 			<version>6.0</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>cupertino</artifactId>
+			<version>1.0.8</version>
+		</dependency>
+		
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -118,24 +125,12 @@
 			<version>5.2.5.Final</version>
 		</dependency>
 
-		<!-- <dependency> <groupId>javassist</groupId> <artifactId>javassist</artifactId> 
-			<version>3.12.1.GA</version> <scope>runtime</scope> </dependency> -->
-		<!-- Hibernate annotation -->
-		<!-- <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-annotations</artifactId> 
-			<version>3.5.6-Final</version> </dependency> -->
-
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.25</version>
 		</dependency>
 
-		<!-- Option 1: Use if deploying to a Java EE application server (GlassFish, 
-			JBoss AS, etc) -->
-		<!-- <dependency> <groupId>javax.faces</groupId> <artifactId>javax.faces-api</artifactId> 
-			<version>2.1</version> <scope>provided</scope> </dependency> -->
-		<!-- Option 2: Use if deploying to a servlet container (Tomcat, Jetty, 
-			etc) -->
 		<dependency>
 			<groupId>org.glassfish</groupId>
 			<artifactId>javax.faces</artifactId>

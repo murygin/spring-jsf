@@ -28,8 +28,9 @@ import org.springframework.stereotype.Component;
 @Component("user")
 @Scope("session")
 public class UserBean  implements Serializable {
-
-    private User user;
+	
+	private static final long serialVersionUID = -5496922613398254380L;
+	private User user;
 
     /**
      * @return the user
