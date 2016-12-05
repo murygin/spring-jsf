@@ -41,10 +41,6 @@ import org.springframework.stereotype.Component;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
-/**
- * @author Daniel Murygin <dm[at]sernet[dot]de>
- * 
- */
 @Component("register")
 @Scope("session")
 public class RegisterBean implements Serializable {

@@ -23,10 +23,8 @@ import java.io.Serializable;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.Restrictions;
-import org.n2.app.persistence.IDao;
 import org.n2.app.persistence.User;
+import org.n2.app.persistence.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,24 +35,20 @@ public class UserService implements IUserService, Serializable {
     private static final Logger LOG = Logger.getLogger(UserService.class);
 
     @Autowired
-    private IDao<User> userDao;
+    UserRepository userRepository;
     
     @Override
     @Transactional
     public void save(User user) {
-    	userDao.save(user);
+        userRepository.save(user);
     }
     
-    /* (non-Javadoc)
-     * @see org.n2.chess.beans.IUserService#findUser(java.lang.String)
-     */
     @Override
     @Transactional(readOnly = true)
     public User findUser(String username) {
-        DetachedCriteria criteria = DetachedCriteria.forClass(User.class);
-        criteria.add(Restrictions.eq("login", username));
+
+        List<User> result = userRepository.findByLogin(username);
         User user = null;
-        List<User> result = userDao.find(criteria);
         if(result!=null) {
             if(result.size()>1) {
                 LOG.error("More than one user found with login: " + username);
@@ -67,23 +61,17 @@ public class UserService implements IUserService, Serializable {
         return user;
     }
 
-    /* (non-Javadoc)
-     * @see org.n2.chess.beans.IUserService#isUsernameAvailable(java.lang.String)
-     */
     @Override
     @Transactional(readOnly = true)
     public boolean isUsernameAvailable(String username) {
-        List<User> userList = userDao.findByExample(new User(username,null,null,null));
+        List<User> userList = userRepository.findByLogin(username);
         return userList==null || userList.isEmpty();
     }
 
-    /* (non-Javadoc)
-     * @see org.n2.chess.beans.IUserService#isEmailAvailable(java.lang.String)
-     */
     @Override
     @Transactional(readOnly = true)
     public boolean isEmailAvailable(String email) {
-        List<User> userList = userDao.findByExample(new User(null,email,null,null));
+        List<User> userList = userRepository.findByEmail(email);
         return userList==null || userList.isEmpty();
     }
 
