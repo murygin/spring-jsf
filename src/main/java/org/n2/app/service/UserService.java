@@ -75,6 +75,10 @@ public class UserService implements IUserService, Serializable {
         return userList==null || userList.isEmpty();
     }
 
-    
+    @Override
+    @Transactional(readOnly = true)
+    public Iterable<User> listUsers(){
+        return userRepository.findAll();
+    }
 
 }

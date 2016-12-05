@@ -34,4 +34,6 @@ public interface IUserService {
     boolean isUsernameAvailable(String username);
     
     boolean isEmailAvailable(String email);
+
+    Iterable<User> listUsers();
 }
