@@ -17,7 +17,7 @@
  * Contributors:
  *     Daniel Murygin <dm[at]sernet[dot]de> - initial API and implementation
  ******************************************************************************/
-package org.n2.app.beans;
+package org.n2.app.validator;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;

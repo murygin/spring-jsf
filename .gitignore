@@ -1,2 +1,15 @@
 /target
 /WebContent
+/.classpath
+/.project
+/.settings/
+/bin/
+/.metadata/
+/spring-jsf.log
+.idea/compiler.xml
+.idea/copyright/
+.idea/misc.xml
+.idea/modules.xml
+.idea/spring-jsf.iml
+.idea/workspace.xml
+/.idea/

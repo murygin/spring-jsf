@@ -17,39 +17,22 @@
  * Contributors:
  *     Daniel Murygin <dm[at]sernet[dot]de> - initial API and implementation
  ******************************************************************************/
-package org.n2.app.beans;
+package org.n2.app.persistence;
 
-import java.io.Serializable;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
-import org.n2.app.service.IUserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
+import java.util.List;
 
-@Component("welcomeBean")
-@Scope("session")
-public class WelcomeBean implements Serializable{
-    
-    @Autowired
-    private IUserService userService;
-    
-    public WelcomeBean() {
-        System.out.println("WelcomeBean instantiated");
-    }
-    public String getMessage() {
-        return "A message from a WelcomeBean";
-    }
-    
-    /**
-     * @return the userService
-     */
-    public IUserService getUserService() {
-        return userService;
-    }
-    /**
-     * @param userService the userService to set
-     */
-    public void setUserService(IUserService userService) {
-        this.userService = userService;
-    }
+@Repository
+public interface UserRepository extends CrudRepository<User,Long> {
+
+	@Query("select u from User u where login = :login")
+	List<User> findByLogin(@Param("login") String login);
+
+	@Query("select u from User u where email = :email")
+	List<User> findByEmail(@Param("email") String email);
+	
 }

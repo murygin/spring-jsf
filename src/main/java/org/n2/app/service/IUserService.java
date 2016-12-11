@@ -17,23 +17,23 @@
  * Contributors:
  *     Daniel Murygin <dm[at]sernet[dot]de> - initial API and implementation
  ******************************************************************************/
-package org.n2.app.beans.hibernate;
+package org.n2.app.service;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.n2.app.persistence.User;
 
 /**
  * @author Daniel Murygin <dm[at]sernet[dot]de>
  *
  */
-public class CustomHibernateDaoSupport  {
-
-    @Autowired
-    private SessionFactory sessionFactory;
-
-    public Session getSession() {
-        return sessionFactory.getCurrentSession();
-    }
+public interface IUserService {
     
+    void save(User user);
+    
+    User findUser(String username);
+    
+    boolean isUsernameAvailable(String username);
+    
+    boolean isEmailAvailable(String email);
+
+    Iterable<User> listUsers();
 }

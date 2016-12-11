@@ -21,19 +21,16 @@ package org.n2.app.beans;
 
 import java.io.Serializable;
 
-import org.n2.app.beans.hibernate.User;
+import org.n2.app.persistence.User;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-/**
- * @author Daniel Murygin <dm[at]sernet[dot]de>
- *
- */
 @Component("user")
 @Scope("session")
 public class UserBean  implements Serializable {
-
-    private User user;
+	
+	private static final long serialVersionUID = -5496922613398254380L;
+	private User user;
 
     /**
      * @return the user

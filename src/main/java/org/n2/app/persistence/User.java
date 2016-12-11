@@ -17,7 +17,7 @@
  * Contributors:
  *     Daniel Murygin <dm[at]sernet[dot]de> - initial API and implementation
  ******************************************************************************/
-package org.n2.app.beans.hibernate;
+package org.n2.app.persistence;
 
 import java.io.Serializable;
 

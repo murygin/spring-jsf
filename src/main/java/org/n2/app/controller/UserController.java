@@ -17,39 +17,30 @@
  * Contributors:
  *     Daniel Murygin <dm[at]sernet[dot]de> - initial API and implementation
  ******************************************************************************/
-package org.n2.app.beans;
+package org.n2.app.controller;
 
-import java.io.Serializable;
-
+import org.n2.app.persistence.User;
 import org.n2.app.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Component("welcomeBean")
-@Scope("session")
-public class WelcomeBean implements Serializable{
-    
+import java.util.ArrayList;
+import java.util.List;
+
+@RestController
+public class UserController {
+
     @Autowired
-    private IUserService userService;
-    
-    public WelcomeBean() {
-        System.out.println("WelcomeBean instantiated");
+    IUserService userService;
+
+    @RequestMapping(path = "/users")
+    public List<User> users(){
+        List<User> users = new ArrayList<>();
+        for(User user : userService.listUsers()){
+            users.add(user);
+        }
+        return users;
     }
-    public String getMessage() {
-        return "A message from a WelcomeBean";
-    }
-    
-    /**
-     * @return the userService
-     */
-    public IUserService getUserService() {
-        return userService;
-    }
-    /**
-     * @param userService the userService to set
-     */
-    public void setUserService(IUserService userService) {
-        this.userService = userService;
-    }
+
 }

@@ -32,7 +32,8 @@ import javax.faces.context.FacesContext;
 import javax.faces.validator.ValidatorException;
 
 import org.apache.log4j.Logger;
-import org.n2.app.beans.hibernate.User;
+import org.n2.app.persistence.User;
+import org.n2.app.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -40,10 +41,6 @@ import org.springframework.stereotype.Component;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
-/**
- * @author Daniel Murygin <dm[at]sernet[dot]de>
- * 
- */
 @Component("register")
 @Scope("session")
 public class RegisterBean implements Serializable {
